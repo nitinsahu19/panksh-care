@@ -68,36 +68,46 @@ export default function Home() {
       <AdmissionPopup />
 
       {/* Hero Slider */}
-      <section className="relative w-full h-[500px] overflow-hidden">
-        {sliderImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
+      <section className="relative w-full aspect-[16/9] md:h-[500px] overflow-hidden">
+  {sliderImages.map((image, index) => (
+    <div
+      key={index}
+      className={`absolute inset-0 transition-opacity duration-1000 ${
+        index === currentSlide ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      <img
+        src={image.src}
+        alt={image.alt}
+        className="w-full h-full object-cover"
+      />
+    </div>
+  ))}
 
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
-        >
-          <ChevronLeft />
-        </button>
+  {/* Previous Button */}
+  <button
+    onClick={prevSlide}
+    className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 
+               bg-black/50 text-white 
+               p-2 md:p-3 
+               rounded-full 
+               hover:bg-black/70 transition"
+  >
+    <ChevronLeft size={20} className="md:w-6 md:h-6" />
+  </button>
 
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
-        >
-          <ChevronRight />
-        </button>
-      </section>
+  {/* Next Button */}
+  <button
+    onClick={nextSlide}
+    className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 
+               bg-black/50 text-white 
+               p-2 md:p-3 
+               rounded-full 
+               hover:bg-black/70 transition"
+  >
+    <ChevronRight size={20} className="md:w-6 md:h-6" />
+  </button>
+</section>
 
       {/* Services Section */}
       <section className="py-16 px-4 bg-white text-center">
