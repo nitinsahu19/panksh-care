@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { ChevronRight } from "lucide-react"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import { Button } from "../components/ui/Button"
+import { Button } from "@/components/ui/button"
 
 export default function Services() {
   const [activeTab, setActiveTab] = useState("early-intervention")
