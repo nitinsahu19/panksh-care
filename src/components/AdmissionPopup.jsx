@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { X } from "lucide-react"
 import { Link } from "react-router-dom"
-import { Button } from "./ui/Button"
 
 export default function AdmissionPopup() {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,7 +22,7 @@ export default function AdmissionPopup() {
         {/* Close Button */}
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 text-gray-500 hover:text-black"
+          className="absolute top-4 right-4 text-gray-500 hover:text-black transition"
         >
           <X className="h-5 w-5" />
         </button>
@@ -68,18 +67,15 @@ export default function AdmissionPopup() {
         {/* Buttons */}
         <div className="space-y-3 mt-6">
           <Link to="/contact">
-            <Button className="w-full bg-secondary text-primary font-bold">
+            <button className="w-full py-2 px-4 rounded-md bg-secondary text-primary font-bold hover:opacity-90 transition">
               Book a Tour Today
-            </Button>
+            </button>
           </Link>
 
           <Link to="/about">
-            <Button
-              variant="outline"
-              className="w-full border-secondary text-secondary"
-            >
+            <button className="w-full py-2 px-4 rounded-md border border-secondary text-secondary font-medium hover:bg-secondary hover:text-primary transition">
               Learn More
-            </Button>
+            </button>
           </Link>
         </div>
       </div>
