@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import AdmissionPopup from "../components/AdmissionPopup"
+import { Button } from "@/components/ui/button"
 
 const sliderImages = [
   { src: "/slider-1.png", alt: "Admissions Open 2026-2027" },

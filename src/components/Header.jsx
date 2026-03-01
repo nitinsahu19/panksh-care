@@ -22,9 +22,9 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <img src="/logo.png" alt="Panksh CARE" className="h-12 w-auto" />
-            <span className="hidden sm:block text-sm font-semibold text-primary">
+            {/* <span className="hidden sm:block text-sm font-semibold text-primary">
               Panksh CARE
-            </span>
+            </span> */}
           </Link>
 
           {/* Desktop Navigation */}

@@ -1,5 +1,5 @@
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -70,7 +70,8 @@ export default function Blogs() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+          <Header />
+    
 
       {/* Hero */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16 px-4">

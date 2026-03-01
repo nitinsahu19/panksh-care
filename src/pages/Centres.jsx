@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import Header from "@/components/Header"
 
 export default function Centres() {
   const centres = [
@@ -39,6 +40,7 @@ export default function Centres() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* <Header /> */}
+      <Header />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-16 px-4">
