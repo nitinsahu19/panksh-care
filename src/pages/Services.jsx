@@ -1,12 +1,11 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
-import { ChevronRight } from "lucide-react"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
-import { Button } from "@/components/ui/button"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Services() {
-  const [activeTab, setActiveTab] = useState("early-intervention")
+  const [activeTab, setActiveTab] = useState("early-intervention");
 
   const services = [
     {
@@ -31,8 +30,7 @@ export default function Services() {
       id: "speech-therapy",
       name: "Speech & Language Therapy",
       icon: "🗣️",
-      shortDesc:
-        "Building clear communication and social connection skills",
+      shortDesc: "Building clear communication and social connection skills",
       details: {
         overview:
           "Speech therapy supports children in developing clear and effective communication skills.",
@@ -44,7 +42,7 @@ export default function Services() {
         ],
       },
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -73,9 +71,7 @@ export default function Services() {
               <h3 className="text-lg font-bold text-primary mb-2">
                 {service.name}
               </h3>
-              <p className="text-sm text-gray-600">
-                {service.shortDesc}
-              </p>
+              <p className="text-sm text-gray-600">{service.shortDesc}</p>
               <div className="flex items-center text-accent mt-4 text-sm font-semibold">
                 Learn More <ChevronRight className="w-4 h-4 ml-1" />
               </div>
@@ -87,7 +83,6 @@ export default function Services() {
       {/* Detailed Tabs Section */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-
           {/* Tab Buttons */}
           <div className="flex flex-wrap gap-4 mb-8">
             {services.map((service) => (
@@ -121,16 +116,11 @@ export default function Services() {
                     {service.details.overview}
                   </p>
 
-                  <h3 className="text-xl font-bold mb-4">
-                    Key Focus Areas:
-                  </h3>
+                  <h3 className="text-xl font-bold mb-4">Key Focus Areas:</h3>
 
                   <ul className="grid md:grid-cols-2 gap-3">
                     {service.details.keyPoints.map((point, index) => (
-                      <li
-                        key={index}
-                        className="flex items-start gap-2"
-                      >
+                      <li key={index} className="flex items-start gap-2">
                         <span className="text-primary font-bold">✓</span>
                         <span>{point}</span>
                       </li>
@@ -139,32 +129,32 @@ export default function Services() {
 
                   <div className="mt-8 text-center">
                     <Link to="/contact">
-                      <Button>
+                      <button className="bg-teal-700 hover:bg-teal-800 text-white px-6 py-3 rounded-md">
                         Book Assessment for This Service
-                      </Button>
+                      </button>
                     </Link>
                   </div>
                 </div>
-              )
+              ),
           )}
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-16 px-4 bg-primary text-white text-center">
-        <h2 className="text-3xl font-bold mb-4">
-          Ready to Learn More?
-        </h2>
+        <h2 className="text-3xl font-bold mb-4">Ready to Learn More?</h2>
         <p className="mb-6">
-          Schedule a consultation with our team to understand how we can
-          support your child.
+          Schedule a consultation with our team to understand how we can support
+          your child.
         </p>
         <Link to="/contact">
-          <Button>Get in Touch</Button>
+          <button className="bg-primary text-white px-6 py-2 rounded-md font-medium hover:bg-primary/90 transition duration-300">
+            Get in Touch
+          </button>
         </Link>
       </section>
 
       <Footer />
     </div>
-  )
+  );
 }
