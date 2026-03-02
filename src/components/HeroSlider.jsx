@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const slides = [
-  { image: "/slider-1.png" },
-  { image: "/slider-2.png" },
-  { image: "/slider-3.png" },
-  { image: "/slider-4.png" },
+  "/slider-1.png",
+  "/slider-2.png",
+  "/slider-3.png",
+  "/slider-4.png",
 ]
 
 export default function HeroSlider() {
@@ -16,70 +15,50 @@ export default function HeroSlider() {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length)
     }, 6000)
+
     return () => clearInterval(interval)
   }, [])
 
-  const next = () => {
-    setIndex((prev) => (prev + 1) % slides.length)
-  }
-
-  const prev = () => {
-    setIndex((prev) => (prev - 1 + slides.length) % slides.length)
-  }
-
   return (
-    <section className="relative w-full h-[65vh] md:h-screen overflow-hidden">
+    <section className="w-full bg-white">
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className="absolute inset-0"
-        >
-          <img
-            src={slides[index].image}
-            alt="slide"
+      <div className="
+        relative 
+        w-full 
+        max-h-screen 
+        flex 
+        items-center 
+        justify-center
+      ">
+
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={index}
+            src={slides[index]}
+            alt="Panksh Care Banner"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
             className="
-              w-full h-full 
-              object-cover 
-              md:object-cover 
-              object-center
+              w-full 
+              h-auto 
+              max-h-screen 
+              object-contain
             "
           />
+        </AnimatePresence>
 
-          {/* Soft overlay only on desktop */}
-          <div className="hidden md:block absolute inset-0 bg-black/20" />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Arrows (hide on small screens for cleaner UI) */}
-      <button
-        onClick={prev}
-        className="hidden md:block absolute left-6 top-1/2 -translate-y-1/2 bg-white/30 backdrop-blur p-3 rounded-full hover:bg-white/50 transition"
-      >
-        <ChevronLeft className="text-white" />
-      </button>
-
-      <button
-        onClick={next}
-        className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 bg-white/30 backdrop-blur p-3 rounded-full hover:bg-white/50 transition"
-      >
-        <ChevronRight className="text-white" />
-      </button>
+      </div>
 
       {/* Dots */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-2 md:gap-3">
+      <div className="flex justify-center gap-3 py-4">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              i === index
-                ? "bg-white w-6 md:w-8"
-                : "bg-white/50 w-2 hover:bg-white"
+            className={`h-2 rounded-full transition-all ${
+              i === index ? "w-8 bg-teal-600" : "w-2 bg-gray-300"
             }`}
           />
         ))}
