@@ -1,31 +1,28 @@
-import { useState, useEffect } from "react"
-import AdmissionPopup from "../components/AdmissionPopup"
-import HeroSlider from "../components/HeroSlider"
-import WhyChoose from "../components/WhyChoose"
-import AboutFull from "../components/AboutFull"
-import InclusiveSection from "../components/InclusiveSection"
-import ServicesOverview from "../components/ServicesOverview"
-import FranchiseFull from "../components/FranchiseFull"
-import FinalCTA from "../components/FinalCTA"
+import { useState, useEffect } from "react";
+import AdmissionPopup from "../components/AdmissionPopup";
+import HeroSlider from "../components/HeroSlider";
+import WhyChoose from "../components/WhyChoose";
+import AboutFull from "../components/AboutFull";
+import InclusiveSection from "../components/InclusiveSection";
+import ServicesOverview from "../components/ServicesOverview";
+import FranchiseFull from "../components/FranchiseFull";
+import { FinalCTA } from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
 
 export default function Home() {
-
-  const [showPopup, setShowPopup] = useState(false)
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowPopup(true)
-    }, 1500)
+      setShowPopup(true);
+    }, 1500);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
-      <AdmissionPopup
-        open={showPopup}
-        onClose={() => setShowPopup(false)}
-      />
+      <AdmissionPopup open={showPopup} onClose={() => setShowPopup(false)} />
 
       <HeroSlider />
       <WhyChoose />
@@ -34,6 +31,7 @@ export default function Home() {
       <ServicesOverview />
       <FranchiseFull />
       <FinalCTA />
+      <Footer />
     </>
-  )
+  );
 }

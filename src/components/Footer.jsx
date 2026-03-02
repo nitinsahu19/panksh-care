@@ -1,83 +1,80 @@
-import { Link } from "react-router-dom"
-import { Mail, Phone, MapPin } from "lucide-react"
-
-export default function Footer() {
+import { Facebook, Instagram, Linkedin } from "lucide-react";
+function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-
-          {/* About Section */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Panksh CARE</h3>
-            <p className="text-sm opacity-90">
-              Where Every Child Belongs. Where Every Child Grows.
-            </p>
-            <p className="text-sm opacity-75 mt-2">
-              Early Learning & Intervention School for children ages 2–12.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/about" className="hover:underline">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:underline">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/centres" className="hover:underline">
-                  Our Centres
-                </Link>
-              </li>
-              <li>
-                <Link to="/franchise" className="hover:underline">
-                  Franchise Partner
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:underline">
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Get In Touch</h3>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-start gap-2">
-                <Phone className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>+91 (Your Phone)</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <Mail className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>info@pankshcare.com</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>Your Location</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Divider */}
-        <div className="border-t border-primary-foreground/20 pt-8">
-          <p className="text-center text-sm opacity-75">
-            © {new Date().getFullYear()} Panksh CARE. All rights reserved.
+    <footer className="bg-slate-950 text-slate-400 py-20">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+        {/* About */}
+        <div>
+          <h3 className="text-white font-bold text-xl mb-6">Panksh Care</h3>
+          <p className="text-sm leading-relaxed">
+            Early Learning & Intervention School integrating structured
+            education with therapeutic understanding to build confident,
+            school-ready children.
           </p>
         </div>
+
+        {/* Programs */}
+        <div>
+          <h4 className="text-white font-semibold mb-6">Programs</h4>
+          <ul className="space-y-3 text-sm">
+            <li className="hover:text-white cursor-pointer transition">
+              Early Intervention
+            </li>
+            <li className="hover:text-white cursor-pointer transition">
+              School Readiness
+            </li>
+            <li className="hover:text-white cursor-pointer transition">
+              Therapy Services
+            </li>
+            <li className="hover:text-white cursor-pointer transition">
+              Day Care
+            </li>
+          </ul>
+        </div>
+
+        {/* Support */}
+        <div>
+          <h4 className="text-white font-semibold mb-6">Support</h4>
+          <ul className="space-y-3 text-sm">
+            <li className="hover:text-white cursor-pointer transition">
+              Parent Coaching
+            </li>
+            <li className="hover:text-white cursor-pointer transition">
+              Academic Support (NIOS)
+            </li>
+            <li className="hover:text-white cursor-pointer transition">
+              Franchise Partnership
+            </li>
+            <li className="hover:text-white cursor-pointer transition">
+              Contact Us
+            </li>
+          </ul>
+        </div>
+
+        {/* Social */}
+        <div>
+          <h4 className="text-white font-semibold mb-6">Connect</h4>
+          <div className="flex gap-4">
+            <div className="w-10 h-10 flex items-center justify-center bg-slate-800 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+              <Facebook className="w-5 h-5 text-white" />
+            </div>
+            <div className="w-10 h-10 flex items-center justify-center bg-slate-800 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+              <Instagram className="w-5 h-5 text-white" />
+            </div>
+            <div className="w-10 h-10 flex items-center justify-center bg-slate-800 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+              <Linkedin className="w-5 h-5 text-white" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-slate-800 mt-16 pt-8 text-center text-sm text-slate-500">
+        © {new Date().getFullYear()} Panksh Care. All rights reserved. Built
+        with structure, purpose, and care.
       </div>
     </footer>
-  )
+  );
 }
+
+export default Footer;
