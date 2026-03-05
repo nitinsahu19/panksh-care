@@ -182,7 +182,7 @@ export default function AboutFull() {
       </section>
 
       {/* Vision CTA */}
-      <section className="py-16 px-4 bg-gradient-to-r from-primary to-primary/80 text-white">
+      {/* <section className="py-16 px-4 bg-gradient-to-r from-primary to-primary/80 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">Our Vision</h2>
 
@@ -198,9 +198,9 @@ export default function AboutFull() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
