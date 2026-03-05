@@ -1,275 +1,206 @@
-import { motion } from "framer-motion"
-import { Sparkles, HeartHandshake } from "lucide-react"
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { Button } from "@/components/ui/button";
+import { CheckCircle, Globe } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function AboutFull() {
+  const inclusionAreas = [
+    "Neurotypical children",
+    "Children with developmental delays",
+    "Autism spectrum conditions",
+    "Speech & communication challenges",
+    "Behavioural & emotional regulation concerns",
+    "Learning differences",
+  ];
+
+  const coreFocus = [
+    "Strong communication skills",
+    "Emotional regulation",
+    "Social confidence",
+    "Cognitive foundations",
+    "Independence in routine",
+    "Smooth transition to mainstream or inclusive schools",
+  ];
+
+  const differentiation = [
+    {
+      icon: "🎓",
+      title: "Education + Intervention Integrated",
+      description:
+        "Therapeutic strategies are embedded within classroom routines — not isolated outside them.",
+    },
+    {
+      icon: "👥",
+      title: "Individual Attention Within Group Learning",
+      description:
+        "Every child receives structured guidance while learning in a social environment.",
+    },
+    {
+      icon: "🏠",
+      title: "Sensory-Aware & Emotion-Safe Spaces",
+      description:
+        "Our environment is calm, structured, and responsive to children's needs.",
+    },
+    {
+      icon: "🤝",
+      title: "Parent Partnership Model",
+      description:
+        "Regular reviews, structured feedback, and guidance sessions ensure families grow with the child.",
+    },
+  ];
+
+  const globalApproach = [
+    "Finland's wellbeing-first early education model",
+    "UK's Early Years Foundation Stage (EYFS)",
+    "Ireland's Aistear framework",
+  ];
+
   return (
-    <section className="relative py-32 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
-      
-      {/* Soft Background Glow */}
-      <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-100 rounded-full blur-3xl opacity-40" />
-      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-40" />
+    <div className="min-h-screen bg-background">
+      {/* <Navbar /> */}
+      {/* <Header /> */}
 
-      <div className="relative max-w-6xl mx-auto px-6">
-
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl font-bold mb-16 text-center text-slate-900"
-        >
-          About Panksh Care
-        </motion.h2>
-
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-
-          {/* Left Content */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.2 } }
-            }}
-            className="space-y-6 text-lg leading-relaxed text-slate-700"
-          >
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 }
-              }}
-            >
-              Founded by <strong>Dr. Sonika Sharma</strong>, Child Psychologist and Founder of Divit Child Development Centre, 
-              Panksh Care was born after years of deep, hands-on experience working with children across diverse developmental profiles.
-            </motion.p>
-
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 }
-              }}
-            >
-              Through clinical practice and classroom observation, we recognized a crucial gap:
-              some children needed structured early foundations, some required specialised developmental support,
-              and all deserved understanding without labels.
-            </motion.p>
-
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 }
-              }}
-              className="bg-white border-l-4 border-teal-500 shadow-md rounded-xl p-6"
-            >
-              <p className="font-semibold text-slate-900 text-xl">
-                Panksh Care bridges education and early intervention.
-              </p>
-              <p className="mt-2 text-slate-600">
-                We have built a structured school readiness ecosystem where learning and therapeutic understanding work together seamlessly — inside the classroom, not outside it.
-              </p>
-            </motion.div>
-
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 }
-              }}
-            >
-              Our model ensures that children are not separated by diagnosis or difficulty.
-              Instead, support is embedded naturally within structured learning,
-              preserving dignity while promoting measurable growth.
-            </motion.p>
-          </motion.div>
-
-          {/* Right Highlight Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-teal-50 to-blue-50 p-10 rounded-3xl shadow-xl"
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <Sparkles className="w-10 h-10 text-teal-600" />
-              <h3 className="text-2xl font-bold text-slate-900">
-                Our Core Belief
-              </h3>
-            </div>
-
-            <p className="text-slate-700 text-lg leading-relaxed mb-6">
-              Every child has potential — but potential flourishes only in environments that combine structure, understanding, and intentional support.
-            </p>
-
-            <div className="flex items-center gap-4 mt-6">
-              <HeartHandshake className="w-8 h-8 text-blue-600" />
-              <p className="text-slate-800 font-semibold">
-                Inclusion is not an add-on at Panksh Care.  
-                It is our foundation.
-              </p>
-            </div>
-          </motion.div>
-
+      {/* Hero */}
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          {/* <h1 className="text-4xl md:text-5xl font-bold">About Panksh CARE</h1> */}
+          <p className="text-lg opacity-90">
+            Building a generation of confident, secure, and capable children.
+          </p>
         </div>
+      </section>
 
-        {/* Bottom Vision Statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mt-20 text-center max-w-4xl mx-auto"
-        >
-          <p className="text-2xl font-semibold text-slate-900 leading-relaxed">
-            We are not building just a school.
-          </p>
-          <p className="text-xl text-slate-600 mt-2">
-            We are building a structured beginning where confidence, emotional security,
-            and developmental readiness grow together.
-          </p>
-        </motion.div>
+      {/* Who We Are */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div>
+            <h2 className="text-3xl font-bold text-primary mb-6">Who We Are</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Panksh Care – Early Learning & Intervention School is an inclusive
+              early years institution where education and developmental
+              understanding come together.
+            </p>
+          </div>
 
-      </div>
-    </section>
-  )
+          <div className="bg-gradient-to-r from-secondary/10 to-accent/10 rounded-lg p-8 border-l-4 border-primary">
+            <h3 className="text-2xl font-bold text-primary mb-4">
+              Our Inspiration – Prakhar's Journey
+            </h3>
+            <p className="text-muted-foreground mb-4">
+              Prakhar is the heart and inspiration behind Panksh Care. Born as a
+              special child, Prakhar faced early developmental challenges.
+            </p>
+            <p className="font-semibold text-primary">
+              "If Prakhar can do it, any child can—with the right support and
+              belief."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Inclusion */}
+      <section className="py-16 px-4 bg-gradient-to-r from-primary/5 to-secondary/5">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-primary mb-6">
+            An Inclusive School for All Children
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-4 mb-8">
+            {inclusionAreas.map((area, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-accent mt-1" />
+                <span>{area}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-white rounded-lg p-6 border-l-4 border-accent shadow-sm">
+            Inclusion here is not an add-on. It is our foundation.
+          </div>
+        </div>
+      </section>
+
+      {/* Core Focus */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-primary mb-6">
+            Our Core Focus: School Readiness
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {coreFocus.map((focus, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center">
+                  <span className="text-xs font-bold text-primary">✓</span>
+                </div>
+                <span>{focus}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Differentiation */}
+      <section className="py-16 px-4 bg-gradient-to-r from-primary/5 to-secondary/5">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-primary mb-12 text-center">
+            How We Are Different
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {differentiation.map((item, index) => (
+              <div key={index} className="bg-white rounded-lg p-8 shadow-md">
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="font-bold text-primary mb-3">{item.title}</h3>
+                <p className="text-muted-foreground">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Global */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-primary mb-6">
+            Globally Inspired. Indian at Heart.
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {globalApproach.map((approach, index) => (
+              <div
+                key={index}
+                className="bg-secondary/10 rounded-lg p-6 border"
+              >
+                <Globe className="w-8 h-8 text-primary mb-3" />
+                <p className="font-medium">{approach}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Vision CTA */}
+      <section className="py-16 px-4 bg-gradient-to-r from-primary to-primary/80 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8">Our Vision</h2>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact">
+              <Button className="bg-secondary text-primary font-bold">
+                Book a School Tour
+              </Button>
+            </Link>
+
+            <Link to="/contact">
+              <Button variant="outline">Schedule a Consultation</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
 }
-
-
-
-
-
-// import { motion } from "framer-motion"
-// import { Heart, Sparkles, Users } from "lucide-react"
-
-// export default function AboutFull() {
-//   return (
-//     <section className="relative py-32 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
-//       <div className="max-w-6xl mx-auto px-6">
-
-//         {/* Section Heading */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 40 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//           viewport={{ once: true }}
-//           className="text-center mb-16"
-//         >
-//           <h2 className="text-5xl font-bold text-slate-900 mb-6">
-//             About Panksh Care
-//           </h2>
-//           <div className="w-24 h-1 bg-teal-500 mx-auto rounded-full" />
-//         </motion.div>
-
-//         {/* Content Grid */}
-//         <div className="grid md:grid-cols-2 gap-16 items-center">
-
-//           {/* Left Content */}
-//           <motion.div
-//             initial={{ opacity: 0, x: -60 }}
-//             whileInView={{ opacity: 1, x: 0 }}
-//             transition={{ duration: 0.8 }}
-//             viewport={{ once: true }}
-//             className="space-y-6 text-slate-700 leading-relaxed text-lg"
-//           >
-//             <p>
-//               Founded by <span className="font-semibold text-slate-900">
-//               Dr. Sonika Sharma</span>, Child Psychologist and Founder of 
-//               Divit Child Development Centre, Panksh Care was created after 
-//               years of working closely with children across diverse developmental profiles.
-//             </p>
-
-//             <p>
-//               Over time, we recognised a critical gap in early education.
-//               Some children needed structured foundations.
-//               Some required specialised intervention.
-//               But every child needed understanding, dignity, and the right environment.
-//             </p>
-
-//             <p className="font-semibold text-slate-900">
-//               Panksh Care bridges education and early intervention —
-//               building a school readiness ecosystem where structured learning
-//               and therapeutic understanding work together seamlessly.
-//             </p>
-
-//             <div className="pt-6 border-t border-slate-200">
-//               <p className="italic text-slate-600">
-//                 We do not separate children by labels.  
-//                 We support them by strengths.
-//               </p>
-//             </div>
-//           </motion.div>
-
-//           {/* Right Highlight Card */}
-//           <motion.div
-//             initial={{ opacity: 0, x: 60 }}
-//             whileInView={{ opacity: 1, x: 0 }}
-//             transition={{ duration: 0.8 }}
-//             viewport={{ once: true }}
-//             whileHover={{ scale: 1.03 }}
-//             className="bg-white shadow-2xl rounded-3xl p-10 border border-slate-100"
-//           >
-//             <div className="space-y-8">
-
-//               <div className="flex items-start gap-4">
-//                 <Heart className="text-teal-500 w-8 h-8 mt-1" />
-//                 <div>
-//                   <h3 className="font-bold text-xl text-slate-900">
-//                     Inclusion is Our Foundation
-//                   </h3>
-//                   <p className="text-slate-600 mt-2">
-//                     Neurotypical and neurodivergent children learn together —
-//                     in structured, emotionally safe classrooms.
-//                   </p>
-//                 </div>
-//               </div>
-
-//               <div className="flex items-start gap-4">
-//                 <Users className="text-teal-500 w-8 h-8 mt-1" />
-//                 <div>
-//                   <h3 className="font-bold text-xl text-slate-900">
-//                     Parent Partnership Model
-//                   </h3>
-//                   <p className="text-slate-600 mt-2">
-//                     Families are active collaborators in developmental planning
-//                     and transition decisions.
-//                   </p>
-//                 </div>
-//               </div>
-
-//               <div className="flex items-start gap-4">
-//                 <Sparkles className="text-teal-500 w-8 h-8 mt-1" />
-//                 <div>
-//                   <h3 className="font-bold text-xl text-slate-900">
-//                     Structured + Compassionate
-//                   </h3>
-//                   <p className="text-slate-600 mt-2">
-//                     Systems built on science. Care built on empathy.
-//                   </p>
-//                 </div>
-//               </div>
-
-//             </div>
-//           </motion.div>
-
-//         </div>
-
-//         {/* Bottom Mission Banner */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 40 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//           viewport={{ once: true }}
-//           className="mt-24 bg-gradient-to-r from-teal-600 to-blue-600 text-white p-12 rounded-3xl shadow-xl text-center"
-//         >
-//           <h3 className="text-2xl md:text-3xl font-bold mb-4">
-//             Our Mission
-//           </h3>
-//           <p className="text-lg max-w-3xl mx-auto leading-relaxed">
-//             To create emotionally secure, developmentally supported, and
-//             school-ready children — who move forward confidently,
-//             without stigma, without comparison, and without limitation.
-//           </p>
-//         </motion.div>
-
-//       </div>
-//     </section>
-//   )
-// }

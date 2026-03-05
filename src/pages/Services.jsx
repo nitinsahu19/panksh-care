@@ -46,7 +46,7 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      {/* <Header /> */}
 
       {/* Hero */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16 px-4">
