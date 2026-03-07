@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
@@ -12,11 +12,8 @@ import ServiceDetails from "./components/ServiceDetails";
 
 function App() {
   return (
-    <BrowserRouter>
-      {/* Navbar Always On Top */}
-
+    <>
       <Navbar />
-      {/* Important spacing because navbar is fixed */}
       <div className="pt-20">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -29,7 +26,7 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </>
   );
 }
 

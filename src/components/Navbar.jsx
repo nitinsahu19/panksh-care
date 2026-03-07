@@ -22,7 +22,7 @@ export default function Navbar() {
         {/* Logo */}
         <NavLink to="/" className="flex items-center gap-2">
           <img
-            src="/logo.png"
+            src="/react/logo.png"
             alt="Panksh Care Logo"
             className="h-16 md:h-20 w-auto object-contain transition-all"
           />

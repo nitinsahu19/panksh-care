@@ -1,36 +1,36 @@
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
-  "/slider-1.png",
-  "/slider-2.png",
-  "/slider-3.png",
-  "/slider-4.png",
-]
+  "/react/slider-1.png",
+  "/react/slider-2.png",
+  "/react/slider-3.png",
+  "/react/slider-4.png",
+];
 
 export default function HeroSlider() {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length)
-    }, 6000)
+      setIndex((prev) => (prev + 1) % slides.length);
+    }, 6000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="w-full bg-white">
-
-      <div className="
+      <div
+        className="
         relative 
         w-full 
         max-h-screen 
         flex 
         items-center 
         justify-center
-      ">
-
+      "
+      >
         <AnimatePresence mode="wait">
           <motion.img
             key={index}
@@ -48,7 +48,6 @@ export default function HeroSlider() {
             "
           />
         </AnimatePresence>
-
       </div>
 
       {/* Dots */}
@@ -63,7 +62,6 @@ export default function HeroSlider() {
           />
         ))}
       </div>
-
     </section>
-  )
+  );
 }
