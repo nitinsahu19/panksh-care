@@ -25,8 +25,8 @@ export default function Home() {
       <AdmissionPopup open={showPopup} onClose={() => setShowPopup(false)} />
 
       <HeroSlider />
-      <WhyChoose />
       <AboutFull />
+      <WhyChoose />
       <InclusiveSection />
       <ServicesOverview />
       <FranchiseFull />
