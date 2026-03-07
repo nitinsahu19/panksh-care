@@ -1,11 +1,11 @@
-// import Header from "@/components/Header"
-// import Footer from "@/components/Footer"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
-import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 
 export default function Centres() {
+
   const centres = [
     {
       name: "Main Centre",
@@ -14,7 +14,7 @@ export default function Centres() {
       email: "info@pankshcare.com",
       hours: "Mon - Fri: 9:00 AM - 5:00 PM",
       services: [
-        "Early Intervention (0-6 Years)",
+        "Early Intervention (0–6 Years)",
         "Speech & Language Therapy",
         "Occupational Therapy",
         "Behavioral Support",
@@ -38,186 +38,259 @@ export default function Centres() {
   ]
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      {/* <Header /> */}
-      <Header />
+    <div className="min-h-screen bg-slate-50 flex flex-col">
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+
+      {/* HERO */}
+      <section className="bg-gradient-to-r from-teal-600 to-blue-600 text-white py-20 px-6">
+        <motion.div
+          initial={{opacity:0, y:40}}
+          whileInView={{opacity:1, y:0}}
+          transition={{duration:0.6}}
+          viewport={{once:true}}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Our Centres
           </h1>
+
           <p className="text-lg opacity-90">
-            Visit us to experience the Panksh CARE difference
+            Visit us to experience the Panksh CARE difference and see how our
+            inclusive environment supports every child’s development.
           </p>
-        </div>
+        </motion.div>
       </section>
 
-      {/* Centres List */}
-      <section className="py-16 px-4 flex-1">
+
+      {/* CENTRES LIST */}
+      <section className="py-20 px-6 flex-1">
+
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+
+          <div className="grid md:grid-cols-2 gap-10 mb-16">
+
             {centres.map((centre, index) => (
-              <div
+
+              <motion.div
                 key={index}
-                className="bg-gradient-to-br from-white to-secondary/5 rounded-lg border border-secondary/20 overflow-hidden hover:shadow-lg transition-shadow"
+                initial={{opacity:0, y:40}}
+                whileInView={{opacity:1, y:0}}
+                transition={{duration:0.6}}
+                viewport={{once:true}}
+                whileHover={{y:-6}}
+                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden border"
               >
-                <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 text-center">
-                  <div className="text-6xl mb-3">{centre.image}</div>
-                  <h3 className="text-2xl font-bold text-primary">
-                    {centre.name}
-                  </h3>
-                </div>
 
-                <div className="p-8 space-y-6">
-                  {/* Contact Info */}
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <MapPin className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold text-primary">Address</p>
-                        <p className="text-foreground/75 text-sm">
-                          {centre.address}
-                        </p>
-                      </div>
-                    </div>
+                {/* TOP HEADER */}
+                <div className="bg-gradient-to-r from-teal-50 to-blue-50 p-8 text-center border-b">
 
-                    <div className="flex items-start gap-3">
-                      <Phone className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold text-primary">Phone</p>
-                        <p className="text-foreground/75 text-sm">
-                          {centre.phone}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <Mail className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold text-primary">Email</p>
-                        <p className="text-foreground/75 text-sm">
-                          {centre.email}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <Clock className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold text-primary">Hours</p>
-                        <p className="text-foreground/75 text-sm">
-                          {centre.hours}
-                        </p>
-                      </div>
-                    </div>
+                  <div className="text-6xl mb-4">
+                    {centre.image}
                   </div>
 
-                  {/* Services */}
-                  <div className="pt-6 border-t border-secondary/20">
-                    <p className="font-semibold text-primary mb-3">
-                      Services Available:
+                  <h3 className="text-2xl font-bold text-slate-800">
+                    {centre.name}
+                  </h3>
+
+                </div>
+
+
+                {/* BODY */}
+                <div className="p-8 space-y-6">
+
+                  {/* CONTACT */}
+                  <div className="space-y-4">
+
+                    <div className="flex gap-3">
+                      <MapPin className="w-5 h-5 text-teal-500 mt-1" />
+                      <div>
+                        <p className="font-semibold text-slate-800">Address</p>
+                        <p className="text-sm text-slate-600">{centre.address}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <Phone className="w-5 h-5 text-teal-500 mt-1" />
+                      <div>
+                        <p className="font-semibold text-slate-800">Phone</p>
+                        <p className="text-sm text-slate-600">{centre.phone}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <Mail className="w-5 h-5 text-teal-500 mt-1" />
+                      <div>
+                        <p className="font-semibold text-slate-800">Email</p>
+                        <p className="text-sm text-slate-600">{centre.email}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <Clock className="w-5 h-5 text-teal-500 mt-1" />
+                      <div>
+                        <p className="font-semibold text-slate-800">Hours</p>
+                        <p className="text-sm text-slate-600">{centre.hours}</p>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  {/* SERVICES */}
+                  <div className="pt-4 border-t">
+
+                    <p className="font-semibold text-slate-800 mb-3">
+                      Services Available
                     </p>
+
                     <ul className="space-y-2">
+
                       {centre.services.map((service, idx) => (
                         <li
                           key={idx}
-                          className="text-sm text-foreground/75 flex items-center gap-2"
+                          className="flex items-center gap-2 text-sm text-slate-600"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                          <span className="w-2 h-2 rounded-full bg-teal-500"></span>
                           {service}
                         </li>
                       ))}
+
                     </ul>
+
                   </div>
 
-                  {/* CTA */}
-                  <div className="pt-4">
-                    <Link to="/contact">
-                      <Button className="w-full">
-                        Schedule a Visit
-                      </Button>
-                    </Link>
-                  </div>
+
+                  {/* BUTTON */}
+                  <Link to="/contact">
+                    <Button className="w-full mt-4">
+                      Schedule a Visit
+                    </Button>
+                  </Link>
+
                 </div>
-              </div>
+
+              </motion.div>
+
             ))}
+
           </div>
 
-          {/* Coming Soon Section */}
-          <div className="bg-gradient-to-r from-secondary/10 to-accent/10 rounded-lg p-8 border-2 border-dashed border-secondary text-center">
-            <h3 className="text-2xl font-bold text-primary mb-3">
+
+          {/* EXPANSION SECTION */}
+          <motion.div
+            initial={{opacity:0}}
+            whileInView={{opacity:1}}
+            viewport={{once:true}}
+            className="bg-white border-2 border-dashed border-slate-300 rounded-xl p-10 text-center"
+          >
+
+            <h3 className="text-2xl font-bold text-slate-800 mb-4">
               Expanding to Your City
             </h3>
-            <p className="text-foreground/80 mb-6 max-w-2xl mx-auto">
-              Panksh CARE is growing. If you're interested in bringing our early
-              intervention and inclusive education programs to your area,
-              we'd love to explore partnership opportunities.
+
+            <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+              Panksh CARE is growing across cities. If you are interested in
+              bringing our early intervention and inclusive education programs
+              to your area, we would love to explore partnership opportunities.
             </p>
+
             <Link to="/franchise">
               <Button variant="secondary">
                 Learn About Franchise Opportunities
               </Button>
             </Link>
-          </div>
+
+          </motion.div>
+
         </div>
+
       </section>
 
-      {/* Why Visit */}
-      <section className="py-16 px-4 bg-gradient-to-r from-primary/5 to-secondary/5">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-primary mb-8 text-center">
+
+      {/* VISIT EXPERIENCE */}
+      <section className="py-20 px-6 bg-gradient-to-r from-teal-50 to-blue-50">
+
+        <div className="max-w-5xl mx-auto">
+
+          <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
             What to Expect During Your Visit
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
+
             {[
               {
                 title: "Facility Tour",
                 description:
-                  "Explore our classrooms, therapy spaces, and activity areas designed for child-centric learning.",
+                  "Explore our classrooms, therapy rooms, and learning spaces designed for child development.",
                 emoji: "🏢",
               },
               {
                 title: "Meet the Team",
                 description:
-                  "Connect with our educators, therapists, and support staff who are passionate about child development.",
+                  "Interact with our educators, therapists, and specialists dedicated to supporting every child.",
                 emoji: "👥",
               },
               {
                 title: "Consultation",
                 description:
-                  "Discuss your child's needs and how our programs can support their developmental journey.",
+                  "Discuss your child's needs and explore how our programs can support their growth.",
                 emoji: "💬",
               },
             ].map((item, index) => (
-              <div key={index} className="bg-white rounded-lg p-6">
-                <div className="text-4xl mb-3">{item.emoji}</div>
-                <h3 className="text-lg font-bold text-primary mb-2">
+
+              <motion.div
+                key={index}
+                initial={{opacity:0, y:30}}
+                whileInView={{opacity:1, y:0}}
+                transition={{delay:index*0.1}}
+                viewport={{once:true}}
+                className="bg-white rounded-xl p-8 shadow-sm text-center"
+              >
+
+                <div className="text-4xl mb-4">
+                  {item.emoji}
+                </div>
+
+                <h3 className="font-semibold text-lg mb-2">
                   {item.title}
                 </h3>
-                <p className="text-foreground/75">{item.description}</p>
-              </div>
+
+                <p className="text-slate-600 text-sm">
+                  {item.description}
+                </p>
+
+              </motion.div>
+
             ))}
+
           </div>
+
         </div>
+
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-16 px-4 bg-primary text-primary-foreground text-center">
-        <h2 className="text-3xl font-bold mb-6">Ready to Visit?</h2>
-        <p className="text-lg opacity-90 mb-8">
+
+      {/* CTA */}
+      <section className="py-20 px-6 bg-slate-900 text-white text-center">
+
+        <h2 className="text-3xl font-bold mb-4">
+          Ready to Visit?
+        </h2>
+
+        <p className="mb-8 opacity-90">
           Schedule your personalized tour and consultation today.
         </p>
+
         <Link to="/contact">
           <Button variant="secondary">
             Schedule Your Visit
           </Button>
         </Link>
+
       </section>
 
-      {/* <Footer /> */}
+<Footer/>
     </div>
   )
-}   
+}

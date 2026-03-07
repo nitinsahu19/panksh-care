@@ -27,8 +27,8 @@ export default function Home() {
       <HeroSlider />
       <AboutFull />
       <WhyChoose />
-      <InclusiveSection />
       <ServicesOverview />
+      <InclusiveSection />
       <FranchiseFull />
       <FinalCTA />
       <Footer />

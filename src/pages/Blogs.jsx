@@ -1,8 +1,8 @@
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Blogs() {
   const blogs = [
@@ -70,32 +70,43 @@ export default function Blogs() {
 
   return (
     <div className="min-h-screen bg-background">
-          <Header />
-    
-
-      {/* Hero */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold">
-            Panksh CARE Insights
-          </h1>
-          <p className="text-lg opacity-90">
-            Articles on early intervention, child development & inclusive
-            education
-          </p>
-        </div>
+      {/* HERO */}
+      <section className="bg-gradient-to-r from-teal-600 to-blue-600 text-white py-20 px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <h1 className="text-4xl md:text-5xl font-bold">
+              Panksh CARE Insights
+            </h1>
+            <p className="text-lg opacity-90">
+              Articles on Early Intervention, Child Development & Inclusive
+              Education
+            </p>
+          </div>
+        </motion.div>
       </section>
 
-      {/* Featured Blog */}
-      <section className="py-12 px-4">
+      {/* FEATURED BLOG */}
+      <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-secondary/10 rounded-lg shadow-lg border p-8 md:p-12 grid md:grid-cols-2 gap-8">
-            <div className="flex items-center justify-center text-9xl">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-secondary/10 border rounded-xl p-8 md:p-12 grid md:grid-cols-2 gap-10 shadow-lg"
+          >
+            <div className="flex items-center justify-center text-[120px]">
               {blogs[0].image}
             </div>
 
-            <div className="space-y-4 flex flex-col justify-center">
-              <span className="bg-secondary text-primary px-3 py-1 rounded-full text-xs font-bold w-fit">
+            <div className="flex flex-col justify-center space-y-5">
+              <span className="bg-secondary text-primary px-3 py-1 rounded-full text-xs font-semibold w-fit">
                 {blogs[0].category}
               </span>
 
@@ -105,11 +116,12 @@ export default function Blogs() {
 
               <p className="text-muted-foreground">{blogs[0].excerpt}</p>
 
-              <div className="flex items-center gap-4 text-sm text-muted-foreground pt-4">
+              <div className="flex items-center gap-6 text-sm text-muted-foreground pt-2">
                 <div className="flex items-center gap-1">
                   <Calendar className="w-4 h-4" />
                   {blogs[0].date}
                 </div>
+
                 <div className="flex items-center gap-1">
                   <User className="w-4 h-4" />
                   {blogs[0].author}
@@ -123,33 +135,53 @@ export default function Blogs() {
                 </Button>
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Blog Grid */}
-      <section className="py-16 px-4">
+      {/* BLOG GRID */}
+      <section className="py-16 px-4 bg-secondary/5">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-primary mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-3xl font-bold text-primary mb-12"
+          >
             Latest Articles
-          </h2>
+          </motion.h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.15 } },
+            }}
+          >
             {blogs.slice(1).map((blog) => (
-              <article
+              <motion.article
                 key={blog.id}
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition overflow-hidden border"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.4 }}
+                whileHover={{ y: -6 }}
+                className="bg-white rounded-xl shadow-md hover:shadow-xl transition border overflow-hidden"
               >
-                <div className="bg-secondary/20 p-8 text-center text-6xl">
+                <div className="bg-secondary/20 p-10 text-center text-6xl">
                   {blog.image}
                 </div>
 
                 <div className="p-6 space-y-4">
-                  <span className="bg-secondary/10 text-primary px-3 py-1 rounded-full text-xs font-bold">
+                  <span className="bg-secondary/10 text-primary px-3 py-1 rounded-full text-xs font-semibold">
                     {blog.category}
                   </span>
 
-                  <h3 className="text-lg font-bold text-primary">
+                  <h3 className="text-lg font-semibold text-primary">
                     {blog.title}
                   </h3>
 
@@ -162,6 +194,7 @@ export default function Blogs() {
                       <Calendar className="w-3 h-3" />
                       {blog.date}
                     </div>
+
                     <div className="flex items-center gap-1">
                       <User className="w-3 h-3" />
                       {blog.author}
@@ -173,33 +206,40 @@ export default function Blogs() {
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Subscribe */}
-      <section className="py-16 px-4 bg-secondary/5">
+      {/* SUBSCRIBE */}
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="py-20 px-4"
+      >
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-primary mb-4">
             Stay Informed
           </h2>
 
           <p className="text-muted-foreground mb-8">
-            Subscribe for insights on child development & early intervention.
+            Subscribe for insights on child development and early intervention.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-4">
             <input
               type="email"
               placeholder="Your email address"
               className="flex-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary"
             />
+
             <Button>Subscribe</Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <Footer />
     </div>

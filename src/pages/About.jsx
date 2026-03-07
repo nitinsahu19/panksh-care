@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Users } from "lucide-react";
 import { Heart } from "lucide-react";
@@ -5,7 +6,7 @@ import { Sparkles, HeartHandshake } from "lucide-react";
 
 export default function About() {
   return (
-    <section className="relative py-32 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
+    <><section className="relative py-32 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Heading */}
         <motion.div
@@ -129,6 +130,8 @@ export default function About() {
           </p>
         </motion.div>
       </div>
+
     </section>
+      <Footer/></>
   );
 }
